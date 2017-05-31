@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var passport = require('passport');
+var SpotifyStrategy = require('./node_modules/passport-spotify/lib/passport-spotify/index').Strategy;
 
 var index = require('./routes/index');
 
@@ -20,6 +23,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret:"hello hi"}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 
@@ -40,5 +46,25 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+passport.use(new SpotifyStrategy({
+    clientID: process.env.spotify_client_id,
+    clientSecret: process.env.spotify_client_secret,
+    callbackURL: "http://localhost:3000/auth/spotify/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+  	process.nextTick(function() {
+  		return done(null,profile);
+  	})
+  }
+));
 
 module.exports = app;
