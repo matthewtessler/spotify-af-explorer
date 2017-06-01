@@ -5,5 +5,6 @@ block content
 	p Welcome to #{title}
 	if user
 		p Hello #{user.displayName}
+		a(class='button' href='/logout') logout
 	else
 		a(href='/auth/spotify') here
