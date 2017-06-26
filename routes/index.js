@@ -1,13 +1,13 @@
 var express = require('express')
 var router = express.Router();
-var request = require('request'); // "Request" library
+var request = require('request');
 var client_id = process.env.spotify_client_id;
 var client_secret = process.env.spotify_client_secret;
 var token;
 
 // GET home page
 router.get('/', function(req, res, next) {
-	// application requests authorization
+	// Client credentials flow from Spotify API Developer Guide
 	var authOptions = {
 	  url: 'https://accounts.spotify.com/api/token',
 	  headers: {
