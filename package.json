@@ -1,6 +1,9 @@
 {
   "name": "spotify-af-explorer",
   "version": "0.0.0",
+  "engines": {
+    "node": "4.3.1"
+  },
   "private": true,
   "scripts": {
     "watch": "watchify main.js -o public/js/bundle.js -v",
