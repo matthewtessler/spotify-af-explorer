@@ -5,6 +5,7 @@
   "scripts": {
     "watch": "watchify main.js -o public/js/bundle.js -v",
     "build": "browserify main.js -o public/js/bundle.js",
+    "preinstall":"npm run watch",
     "start": "npm run watch & node bin/www"
   },
   "dependencies": {
