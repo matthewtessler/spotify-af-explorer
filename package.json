@@ -8,7 +8,7 @@
   "scripts": {
     "watch": "watchify main.js -o public/js/bundle.js -v",
     "build": "browserify main.js -o public/js/bundle.js",
-    "postinstall":"npm run build",
+    "preinstall":"npm run build",
     "start": "node bin/www"
   },
   "dependencies": {
