@@ -6,7 +6,7 @@
     "watch": "watchify main.js -o public/js/bundle.js -v",
     "build": "browserify main.js -o public/js/bundle.js",
     "preinstall":"npm run watch",
-    "start": "npm run watch & node bin/www"
+    "start": "node bin/www"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

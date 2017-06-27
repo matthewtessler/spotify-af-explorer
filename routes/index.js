@@ -3,8 +3,6 @@ var router = express.Router();
 var request = require('request');
 var client_id = process.env.spotify_client_id;
 var client_secret = process.env.spotify_client_secret;
-console.log(client_id);
-console.log(client_secret);
 var token;
 
 // GET home page
