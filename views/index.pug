@@ -3,3 +3,6 @@ extends layout
 block content
 	h1= title
 	p Welcome to #{title}
+	form(method="GET" action="/" onsubmit="return false;")
+		input(type="text" id="searchBar")
+		input(type="submit" value="Search!" id="searchButton")
