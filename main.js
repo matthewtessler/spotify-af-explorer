@@ -15,6 +15,7 @@ function searching(){
     }
     else {
       // display search results of tracks, artists, albums
+      console.log(data);
 
       // tracks div will hold tracks results
       var tracks = document.createElement('div');
@@ -22,7 +23,13 @@ function searching(){
       tracks.innerHTML = '<h2>Tracks</h2>';
       var tracksList = data.tracks.items;
       tracksList.forEach(function(ele){
+        /*
+        var mediaDiv = "<div class='media'><div class='media-left'><img class='media-object' src='";
+        mediaDiv += "https://www.neto.com.au/assets/images/default_product.gif";
+        mediaDiv +="' alt='" + ele.name + "'></div><div class='media-body'><p>" + ele.name + "</p></div></div>";
+        tracks.innerHTML += mediaDiv;*/
         tracks.innerHTML += "<p>" + ele.name + "</p>";
+
       });
 
       // artists div will hold artists results
@@ -31,6 +38,16 @@ function searching(){
       artists.innerHTML = '<h2>Artists</h2>';
       var artistsList = data.artists.items;
       artistsList.forEach(function(ele){
+        /*
+        var mediaDiv = "<div class='media'><div class='media-left'><img class='media-object' src='";
+        if (typeof(ele.images[2].url) !== 'undefined') {
+          mediaDiv += ele.images[2].url;
+        }
+        else {
+          mediaDiv += "https://www.neto.com.au/assets/images/default_product.gif";
+        }
+        mediaDiv +="' alt='" + ele.name + "'></div><div class='media-body'><p>" + ele.name + "</p></div></div>";
+        artists.innerHTML += mediaDiv; */
         artists.innerHTML += "<p>" + ele.name + "</p>";
       });
 
@@ -40,7 +57,18 @@ function searching(){
       albums.innerHTML = '<h2>Albums</h2>';
       var albumsList = data.albums.items;
       albumsList.forEach(function(ele){
+        /*
+        var mediaDiv = "<div class='media'><div class='media-left'><img class='media-object' src='";
+        if (typeof(ele.images[2].url) !== 'undefined') {
+          mediaDiv += ele.images[2].url;
+        }
+        else {
+          mediaDiv += "https://www.neto.com.au/assets/images/default_product.gif";
+        }
+        mediaDiv +="' alt='" + ele.name + "'></div><div class='media-body'><p>" + ele.name + "</p></div></div>";
+        albums.innerHTML += mediaDiv; */
         albums.innerHTML += "<p>" + ele.name + "</p>";
+
       });
 
       // find the search results div and append all the results to it
