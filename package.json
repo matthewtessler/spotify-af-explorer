@@ -6,9 +6,9 @@
   },
   "private": true,
   "scripts": {
-    "watch": "watchify main.js -o public/js/bundle.js -v",
-    "build": "browserify main.js -o public/js/bundle.js",
-    "preinstall":"npm run build",
+    "watch": "node_modules/.bin/watchify main.js -o public/js/bundle.js -v",
+    "build": "node_modules/.bin/browserify  main.js -o public/js/bundle.js",
+    "postinstall":"npm run build",
     "start": "node bin/www"
   },
   "dependencies": {
