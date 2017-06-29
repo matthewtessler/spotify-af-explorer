@@ -14,29 +14,34 @@ function searching(){
       console.error(err);
     }
     else {
-      console.log(data);
       // display search results of tracks, artists, albums
 
       // tracks div will hold tracks results
       var tracks = document.createElement('div');
       tracks.id = "tracksDiv";
       tracks.innerHTML = '<h2>Tracks</h2>';
-
-      // add in all the tracks to the tracks div
+      var tracksList = data.tracks.items;
+      tracksList.forEach(function(ele){
+        tracks.innerHTML += "<p>" + ele.name + "</p>";
+      });
 
       // artists div will hold artists results
       var artists = document.createElement('div');
       artists.id = "artistsDiv";
       artists.innerHTML = '<h2>Artists</h2>';
-
-      // add in all the artists to the artists div
+      var artistsList = data.artists.items;
+      artistsList.forEach(function(ele){
+        artists.innerHTML += "<p>" + ele.name + "</p>";
+      });
 
       // albums div will hold album results
       var albums = document.createElement('div');
       albums.id = "albumsDiv";
       albums.innerHTML = '<h2>Albums</h2>';
-
-      // add in all the albums to the albums div
+      var albumsList = data.albums.items;
+      albumsList.forEach(function(ele){
+        albums.innerHTML += "<p>" + ele.name + "</p>";
+      });
 
       // find the search results div and append all the results to it
       var searchResultsDiv = document.getElementById('searchResultsDiv');
