@@ -1,3 +1,14 @@
 body {
   padding: 50px;
+  background-color: #191414;
+  color: #1DB954;
+  font-family: "Helvetica", "Arial", "sans-serif";
+}
+
+form {
+  color: #191414;
+}
+
+p {
+  color: #FFFFFF;
 }
