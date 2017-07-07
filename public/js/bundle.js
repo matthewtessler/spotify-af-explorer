@@ -11,9 +11,8 @@ document.getElementById("searchBar").addEventListener("keyup", function(e) {
 });
 
 function searching(){
-  // disable search button for now so function won't run again unless new search
-  var searchButton = document.getElementById('goBtn');
-  searchButton.disabled = true;
+  var searchResultsDiv = document.getElementById('searchResultsDiv');
+  searchResultsDiv.innerHTML = "";
 
   // get the search query and send to spotify api search endpoint
   var query = document.getElementById("searchBar").value;
@@ -25,38 +24,20 @@ function searching(){
       // display search results of tracks, artists, albums
       console.log(data);
 
-      // tracks div will hold tracks results
-      var tracks = document.createElement('div');
-      tracks.id = "tracksDiv";
-      tracks.innerHTML = '<h2>Tracks</h2>';
       var tracksList = data.tracks.items;
       tracksList.forEach(function(ele){
-        tracks.innerHTML += "<p>" + ele.name + "</p>";
+        searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + ele.name + " <small>Track</small></span></div></div></div>";
       });
 
-      // artists div will hold artists results
-      var artists = document.createElement('div');
-      artists.id = "artistsDiv";
-      artists.innerHTML = '<h2>Artists</h2>';
       var artistsList = data.artists.items;
       artistsList.forEach(function(ele){
-        artists.innerHTML += "<p>" + ele.name + "</p>";
+        searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + ele.name + " <small>Artist</small></div></div></div>";
       });
 
-      // albums div will hold album results
-      var albums = document.createElement('div');
-      albums.id = "albumsDiv";
-      albums.innerHTML = '<h2>Albums</h2>';
       var albumsList = data.albums.items;
       albumsList.forEach(function(ele){
-        albums.innerHTML += "<p>" + ele.name + "</p>";
+        searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + ele.name + " <small>Album</small></div></div></div>";
       });
-
-      // find the search results div and append all the results to it
-      var searchResultsDiv = document.getElementById('searchResultsDiv');
-      searchResultsDiv.appendChild(tracks);
-      searchResultsDiv.appendChild(artists);
-      searchResultsDiv.appendChild(albums);
     }
   });
 }

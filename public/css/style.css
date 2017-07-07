@@ -1,8 +1,18 @@
 body {
-  padding: 50px;
+  padding: 15px;
   background-color: #191414;
   color: #1DB954;
   font-family: "Helvetica", "Arial", "sans-serif";
+}
+
+.panel {
+  margin:10px;
+  color:#191414;
+  min-height:85px;
+}
+
+small {
+  color:#828282;
 }
 
 form {

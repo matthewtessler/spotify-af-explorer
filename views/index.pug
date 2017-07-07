@@ -1,11 +1,17 @@
 extends layout
 
 block content
-
-	div(class="col-lg-12")
-		h1=title
-		div(class="input-group")
-			input(type="text" class="form-control" id="searchBar" placeholder="Find tracks, albums, artists...")
-			span(class="input-group-btn")
-				button(class="btn btn-default" type="button" id="goBtn") Go!
-	div(class="col-lg-12" id="searchResultsDiv")
+	div(class="container-fluid")
+		div(class="row")
+			div(class="col-lg-3")
+			div(class="col-lg-6")
+				h1=title
+				div(class="input-group")
+					input(type="text" class="form-control" id="searchBar" placeholder="Find tracks, albums, artists...")
+					span(class="input-group-btn")
+						button(class="btn btn-default" type="button" id="goBtn") Go!
+			div(class="col-lg-3")
+				
+	div(class="container-fluid")
+		div(class="row" id="searchResultsDiv")
+				
