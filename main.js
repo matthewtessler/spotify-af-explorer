@@ -39,20 +39,26 @@ function searching(){
         else {
           console.log(data);
           for (var i=0; i < tracksList.length; i++) {
-            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + tracksList[i].name + " <small>Track</small></div><div class='panel-body'>";
             // audio features parsing will go here
-            searchResultsDiv.innerHTML += "</div></div></div>";
+            var af = "Danceability: " + data.audio_features[i].danceability;
+            af += "<br> Acousticness: " +  data.audio_features[i].acousticness;
+            af += "<br> Energy: " + data.audio_features[i].energy;
+            af += "<br> Instrumentalness: " + data.audio_features[i].instrumentalness;
+            af += "<br> Liveness: " + data.audio_features[i].liveness;
+            af += "<br> Loudness: " + data.audio_features[i].loudness;
+            af += "<br> Speechiness: " + data.audio_features[i].speechiness;
+            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + tracksList[i].name + " <small>Track</small></div><div class='panel-body'>" + af + "</div></div></div>";
           }
 
-          artistsList.forEach(function(ele){
-            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + ele.name + " <small>Artist</small></div></div></div>";
+          for (var i=0; i < artistsList.length; i++) {
+            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + artistsList[i].name + " <small>Artist</small></div></div></div>";
             // artists will have an average audio features of all their songs, or something
-          });
+          };
 
-          albumsList.forEach(function(ele){
-            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + ele.name + " <small>Album</small></div></div></div>";
+          for (var i=0; i < albumsList.length; i++){
+            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + albumsList[i].name + " <small>Album</small></div></div></div>";
             // album will have an audio features average for all tracks
-          });
+          };
         }
       });
 
