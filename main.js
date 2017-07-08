@@ -1,4 +1,5 @@
 var Spotify = require('spotify-web-api-js');
+var RadialProgressChart = require('radial-progress-chart');
 var s = new Spotify();
 s.setAccessToken(token);
 

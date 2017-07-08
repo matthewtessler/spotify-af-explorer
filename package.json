@@ -8,7 +8,7 @@
   "scripts": {
     "watch": "node_modules/.bin/watchify main.js -o public/js/bundle.js -v",
     "build": "node_modules/.bin/browserify  main.js -o public/js/bundle.js",
-    "postinstall":"npm run build",
+    "postinstall": "npm run build",
     "start": "node bin/www"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "morgan": "~1.8.1",
     "nodemon": "^1.11.0",
     "pug": "~2.0.0-beta11",
+    "radial-progress-chart": "0.0.4",
     "request": "^2.81.0",
     "serve-favicon": "~2.4.2",
     "spotify-web-api-js": "^0.22.0",
