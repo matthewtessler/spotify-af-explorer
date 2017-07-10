@@ -1,7 +1,7 @@
 body {
   padding: 15px;
   background-color: #191414;
-  color: #1DB954;
+  color: #32CD65;
   font-family: "Helvetica", "Arial", "sans-serif";
 }
 
@@ -9,6 +9,19 @@ body {
   margin:10px;
   color:#191414;
   min-height:85px;
+}
+
+#key {
+  margin: 10px;
+  text-align: center;
+}
+
+.progress-bar {
+  color: #191414;
+}
+
+h1 {
+  text-align: center;
 }
 
 small {

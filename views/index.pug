@@ -7,11 +7,16 @@ block content
 			div(class="col-lg-6")
 				h1=title
 				div(class="input-group")
-					input(type="text" class="form-control" id="searchBar" placeholder="Find tracks, albums, artists...")
+					input(type="text" class="form-control" id="searchBar" placeholder="Find your favorite tracks...")
 					span(class="input-group-btn")
+						a(class="btn btn-default" type="button" href="https://developer.spotify.com/web-api/get-audio-features/" target="_blank")
+							span(class="glyphicon glyphicon-question-sign")
 						button(class="btn btn-default" type="button" id="goBtn") Go!
 			div(class="col-lg-3")
-				
+	div(class="container-fluid")
+		div(class="row")
+			div(class="col-lg-12")
+				p(id="key")
+	
 	div(class="container-fluid")
 		div(class="row" id="searchResultsDiv")
-				
