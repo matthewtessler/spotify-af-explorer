@@ -13,7 +13,6 @@ document.getElementById("searchBar").addEventListener("keyup", function(e) {
 function pb(percentage, color, desc) {
   return "<div class='progress' title=" + desc + "><div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width:" + percentage.toFixed(0) +  "%;background-color:#" + color + "'> " +  percentage.toFixed(0) + "% " + desc + "</div></div>";
 }
-
 function searching(){
 
   var searchResultsDiv = document.getElementById('searchResultsDiv');

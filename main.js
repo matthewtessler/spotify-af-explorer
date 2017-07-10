@@ -12,7 +12,6 @@ document.getElementById("searchBar").addEventListener("keyup", function(e) {
 function pb(percentage, color, desc) {
   return "<div class='progress' title=" + desc + "><div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width:" + percentage.toFixed(0) +  "%;background-color:#" + color + "'> " +  percentage.toFixed(0) + "% " + desc + "</div></div>";
 }
-
 function searching(){
 
   var searchResultsDiv = document.getElementById('searchResultsDiv');
@@ -25,8 +24,6 @@ function searching(){
   keyDiv.innerHTML += "<span class='glyphicon glyphicon-stop' style='color:#FB483B' aria-hidden='true'></span> instrumental ";
   keyDiv.innerHTML += "<span class='glyphicon glyphicon-stop' style='color:#AC2F95' aria-hidden='true'></span> liveness ";
   keyDiv.innerHTML += "<span class='glyphicon glyphicon-stop' style='color:#F39A35' aria-hidden='true'></span> speechiness ";
-
-
 
   // get the search query and send to spotify api search endpoint
   var query = document.getElementById("searchBar").value;
