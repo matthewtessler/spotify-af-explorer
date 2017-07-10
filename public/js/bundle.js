@@ -26,8 +26,6 @@ function searching(){
   keyDiv.innerHTML += "<span class='glyphicon glyphicon-stop' style='color:#AC2F95' aria-hidden='true'></span> liveness ";
   keyDiv.innerHTML += "<span class='glyphicon glyphicon-stop' style='color:#F39A35' aria-hidden='true'></span> speechiness ";
 
-
-
   // get the search query and send to spotify api search endpoint
   var query = document.getElementById("searchBar").value;
   s.search(query, ["track"], function(err,data) {
@@ -60,7 +58,8 @@ function searching(){
             var live = pb(parseFloat(data.audio_features[i].liveness)*100, "AC2F95", " &#x1F3A4"); // purple
             var speechy = pb(parseFloat(data.audio_features[i].speechiness)*100, "F39A35", " &#x1F4AC"); // orange
             var attributes = danceable + acoustic + energy + instrumental + live + speechy;
-            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + tracksList[i].name + " <small>Track</small><br>Artist: " + tracksList[i].artists[0].name + "</div><div class='panel-body'>" + attributes + "</div></div></div>";
+            var preview_link = " <a href='" + tracksList[i].preview_url + "' target='_blank'>30 sec preview <span class='glyphicon glyphicon-music' aria-hidden='true'></span></a>";
+            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'>" + tracksList[i].name + " <br>Artist: " + tracksList[i].artists[0].name + preview_link + "</div><div class='panel-body'>" + attributes + "</div></div></div>";
           }
         }
       });
