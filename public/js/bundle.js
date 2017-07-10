@@ -60,7 +60,7 @@ function searching(){
             var attributes = danceable + acoustic + energy + instrumental + live + speechy;
             var preview_link = " <a href='" + tracksList[i].preview_url + "' target='_blank'><span class='glyphicon glyphicon-music' aria-hidden='true'></span> preview</a>";
             var artwork = "<img src='" + tracksList[i].album.images[0].url + "'>";
-            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'><div class='row'><div class='col-lg-9'><a href='" + tracksList[i].external_urls.spotify +"' target='_blank'>" + tracksList[i].name + "</a><br>Artist: " + tracksList[i].artists[0].name + preview_link + "</div><div class='col-lg-3'>" + artwork + "</div></div><div class='panel-body'>" + attributes + "</div></div></div>";
+            searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'><div class='row'><div class='col-lg-9'>" + tracksList[i].name + " <a href='" + tracksList[i].external_urls.spotify +"' target='_blank'><span class='glyphicon glyphicon-new-window' aria-hidden='true'></span></a><br>Artist: " + tracksList[i].artists[0].name + preview_link + "</div><div class='col-lg-3'>" + artwork + "</div></div><div class='panel-body'>" + attributes + "</div></div></div>";
           }
         }
       });
