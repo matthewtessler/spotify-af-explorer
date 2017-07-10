@@ -16,6 +16,10 @@ img {
   height: 50px;
 }
 
+#top {
+  text-align: center;
+}
+
 #key {
   margin: 10px;
   text-align: center;
@@ -39,4 +43,8 @@ form {
 
 p {
   color: #FFFFFF;
+}
+
+a {
+  color: #666666;
 }
