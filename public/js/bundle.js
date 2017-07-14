@@ -19,7 +19,7 @@ function searching(){
 
   // getting the search results div to add the results to later
   var searchResultsDiv = document.getElementById('searchResultsDiv');
-  searchResultsDiv.innerHTML = "";
+  searchResultsDiv.innerHTML = "<div class='row' id='one'></div><div class='row' id='two'></div><div class='row' id='three'></div><div class='row' id='four'></div><div class='row' id='five'></div>";
 
   var keyDiv = document.getElementById('key');
   keyDiv.innerHTML = "<span class='glyphicon glyphicon-stop' style='color:#65F35B' aria-hidden='true'></span> danceability ";
@@ -56,6 +56,26 @@ function searching(){
           console.log(data);
           var bars = [];
           for (var i=0; i < tracksList.length; i++) {
+            if (i < 4) {
+              div = document.getElementById("one");
+              console.log(i);
+            }
+            else if (i > 3 && i < 8) {
+              div = document.getElementById("two");
+              console.log(i);
+            }
+            else if (i > 7 && i < 12) {
+              div = document.getElementById("three");
+              console.log(i);
+            }
+            else if (i > 11 && i < 16) {
+              div = document.getElementById("four");
+              console.log(i);
+            }
+            else {
+              console.log(i);
+              div = document.getElementById("five");
+            }
             var danceable = pb(parseFloat(data.audio_features[i].danceability)*100, "65F35B", " &#x1F483 &#x1F57A"); //green
             var acoustic = pb(parseFloat(data.audio_features[i].acousticness)*100, "4222F2", " &#x1F399"); // blue
             var energy = pb(parseFloat(data.audio_features[i].energy)*100, "CEF36D", " &#x26A1"); // yellow / orange
@@ -73,10 +93,10 @@ function searching(){
             // check if the preview exists before building a link for it
             if (tracksList[i].preview_url) {
               var preview_link = " <a href='" + tracksList[i].preview_url + "' target='_blank'><span class='glyphicon glyphicon-music' aria-hidden='true'></span></a>";
-              searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'><div class='row'><div class='col-lg-9'>" + tracksList[i].name + " <a href='" + tracksList[i].external_urls.spotify +"' target='_blank'><span class='glyphicon glyphicon-new-window' aria-hidden='true'></span></a>" + preview_link + "<br>Artist: " + tracksList[i].artists[0].name + "</div><div class='col-lg-3'>" + artwork + "</div></div></div><div class='panel-body'>" + attributes + "</div></div>";
+              div.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'><div class='row'><div class='col-lg-9'>" + tracksList[i].name + " <a href='" + tracksList[i].external_urls.spotify +"' target='_blank'><span class='glyphicon glyphicon-new-window' aria-hidden='true'></span></a>" + preview_link + "<br>Artist: " + tracksList[i].artists[0].name + "</div><div class='col-lg-3'>" + artwork + "</div></div></div><div class='panel-body'>" + attributes + "</div></div>";
             }
             else {
-              searchResultsDiv.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'><div class='row'><div class='col-lg-9'>" + tracksList[i].name + "<a href='" + tracksList[i].external_urls.spotify + "' target='_blank'><span class='glyphicon glyphicon-new-window' aria-hidden='true'></span></a><br>Artist: " + tracksList[i].artists[0].name + "</div><div class='col-lg-3'>" + artwork + "</div></row></div></div><div class='panel-body'>" + attributes + "</div></div>";
+              div.innerHTML += "<div class='col-lg-3'><div class='panel panel-default'><div class='panel-heading'><div class='row'><div class='col-lg-9'>" + tracksList[i].name + " <a href='" + tracksList[i].external_urls.spotify + "' target='_blank'><span class='glyphicon glyphicon-new-window' aria-hidden='true'></span></a><br>Artist: " + tracksList[i].artists[0].name + "</div><div class='col-lg-3'>" + artwork + "</div></row></div></div><div class='panel-body'>" + attributes + "</div></div>";
 
             }
           }
