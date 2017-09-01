@@ -7,6 +7,8 @@ var token;
 
 // GET home page
 router.get('/', function(req, res, next) {
+	res.redirect(301, 'https://explore-spotify.herokuapp.com');
+	/*
 	// Client credentials flow from Spotify API Developer Guide
 	var authOptions = {
 	  url: 'https://accounts.spotify.com/api/token',
@@ -26,7 +28,7 @@ router.get('/', function(req, res, next) {
 		else {
 			res.render('index', {title: 'Spotify Audio Features Explorer', token: "was not found."});
 		}
-	});
+	});*/
 });
 
 module.exports = router;
